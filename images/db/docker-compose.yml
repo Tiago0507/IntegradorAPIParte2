@@ -1,0 +1,18 @@
+services:
+  db:
+    platform: linux/x86_64
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_DB: 'db'
+      POSTGRES_USER: 'user'
+      POSTGRES_PASSWORD: 'password'
+    ports:
+      - '6001:5432'
+    expose:
+      - '6001'
+    volumes:
+      - my-dbpostgres:/var/lib/postgresql/data
+
+volumes:
+  my-dbpostgres:
